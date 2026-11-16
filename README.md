@@ -42,6 +42,7 @@ For an application:
 - Fit-for-purpose architecture guided by *Fundamentals of Software Architecture: An
   Engineering Approach* and Clean Code. Add layers and packages when they solve a real need.
 - pnpm and TypeScript. Recheck supported stable versions and peer compatibility at scaffolding.
+- ESLint for linting and Prettier for formatting, configured when a profile is scaffolded.
 - Jest for unit/component and isolated integration tests; Playwright for named critical
   browser journeys. Keep manual usability and accessibility review.
 - Spec Kit owns feature specifications, plans, and tasks. Impeccable owns interface design;

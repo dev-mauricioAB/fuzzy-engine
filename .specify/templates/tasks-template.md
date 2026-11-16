@@ -28,8 +28,11 @@ Create only tasks relevant to the selected profile:
 
 - [ ] T001 Confirm project context, scope, selected profile, and unresolved decisions.
 - [ ] T002 Configure compatible pnpm/TypeScript/runtime dependencies from the approved plan.
-- [ ] T003 Configure and verify Jest transforms/environment/aliases for included packages.
-- [ ] T004 Configure actual lint/type/build/unit scripts and applicable CI checks.
+- [ ] T003 Configure and verify Jest transforms/environment/aliases for included packages;
+  depends on T002.
+- [ ] T004 Configure ESLint and Prettier for included packages, lint/format/type/build/unit
+  scripts, and applicable CI checks including non-mutating lint/format checks;
+  depends on T002 and T003.
 - [ ] T005 [If required] Configure isolated integration data and a working runner.
 - [ ] T006 [If required] Configure critical-only Playwright fixtures and CI dependencies.
 
@@ -53,7 +56,7 @@ mirror implementation constants, or test mocks instead of behavior.
 
 ## Integration and handoff
 
-- [ ] [ID] Run affected lint/type/build/test checks; report any unrelated baseline failures.
+- [ ] [ID] Run affected lint/format/type/build/test checks; report unrelated baseline failures.
 - [ ] [ID] Review responsive layout, keyboard/focus, copy, and accessibility where applicable.
 - [ ] [ID] [If full stack] Validate local web/API/database builds and explicit migrations
   through the planned Compose workflow, without exposing local credentials.

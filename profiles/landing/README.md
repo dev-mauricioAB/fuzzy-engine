@@ -6,6 +6,7 @@ This is guidance only; no application or dependencies are installed here.
 ## Planned foundation
 
 - One pnpm-managed TypeScript frontend package with React 19+, Vite, and Tailwind.
+- ESLint and Prettier for the frontend, configured during scaffolding.
 - shadcn/ui controls only where needed; project-specific design through Impeccable.
 - Jest/Testing Library for meaningful behavior. Playwright for a named critical action
   when the page has one, such as a contact form or primary navigation/CTA.
@@ -32,7 +33,8 @@ and deployment providers are explicit project choices.
 ## Scaffold acceptance
 
 - A new project can install from its generated lockfile and run its documented scripts.
-- Lint, typecheck, unit/component tests, and production build work in CI.
+- ESLint, Prettier's non-mutating format check, typecheck, unit/component tests, and
+  production build work in CI.
 - Critical browser behavior, when present, is exercised without live third-party dependency.
 - Responsive/manual keyboard checks are recorded; content and delivery failures are honest.
 - No unused backend/database/runtime dependencies are carried from the full-stack profile.

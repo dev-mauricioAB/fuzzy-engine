@@ -62,7 +62,11 @@ Before feature behavior, prove Jest can load the relevant TypeScript/TSX, ESM, a
 React DOM environment, and (where used) NestJS decorators. Vite plugins do not configure Jest.
 Keep type-checking separate. Do not resolve peer conflicts with force/legacy-peer-deps.
 
-Configure actual lint, type, build, and test scripts and appropriate CI. Add database
+Configure ESLint and Prettier, their lint/format scripts, and non-mutating CI checks as
+described in [architecture and quality](./architecture.md). Verify supported versions and
+peer compatibility when scaffolding; do not treat these tools as installed in this foundation.
+
+Configure actual type, build, and test scripts and appropriate CI. Add database
 integration and critical-browser jobs only to profiles/features needing them; required jobs
 must fail on failure rather than becoming optional or suppressing tests.
 The full-stack profile must support local Compose validation and isolated integration data.

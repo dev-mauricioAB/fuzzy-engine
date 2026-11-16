@@ -6,6 +6,7 @@ This is guidance only; there are no services, schema, containers, or app depende
 ## Planned foundation
 
 - pnpm workspace: `apps/web` and `apps/api`.
+- ESLint and Prettier across the included workspace packages, configured during scaffolding.
 - React/Vite/Tailwind/shadcn frontend; React Router for routes, Zustand for shared client
   state, TanStack Query for server state, and RHF/Zod for forms where required.
 - NestJS modular monolith, PostgreSQL, and latest compatible stable Prisma.
@@ -35,6 +36,7 @@ Pin compatible stable dependencies and verify TS/TSX, ESM, aliases, and decorato
 ## Scaffold acceptance
 
 - Web/API/domain/contracts, where present, pass documented build and type checks.
+- ESLint and Prettier's non-mutating format check cover included packages and run in CI.
 - A named critical user journey crosses the real local web/API/persistence boundary.
 - Jest covers rules/contracts/components and isolated integration; Playwright covers the
   critical journey and its important recovery case, with controlled data.

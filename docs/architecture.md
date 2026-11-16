@@ -53,13 +53,30 @@ compliance. Keep manual keyboard, responsive, and assistive-technology review.
 
 ## Planned verification interface
 
-Scaffolding should define `lint`, `typecheck`, `build`, `test`, and opt-in `test:watch`.
+Scaffolding should configure ESLint with a flat config for the selected TypeScript project.
+Cover frontend source and tests; for full stack, also cover API and included shared packages.
+Scope browser, Node, React, and test rules to the files that use them. Verify supported stable
+versions and peer compatibility before installing the required development dependencies.
+
+Configure Prettier with a shared project config, using its defaults unless the project
+chooses otherwise. Use `eslint-config-prettier` after other ESLint configs to disable
+conflicting formatting rules. Keep linting and formatting as separate checks.
+Configure ignores for dependencies, generated output, lockfiles, and vendored material
+such as `.agents/skills`, `.github/skills`, and `.specify` in both tools; do not reformat
+upstream content. Cover project-owned source, tests, configuration, and documentation
+where applicable.
+
+Scaffolding should define `lint`, `format`, `format:check`, `typecheck`, `build`, `test`,
+and opt-in `test:watch`. `format` writes changes; `format:check` checks without modifying files.
 Add `test:integration` for real isolated integrations and `test:e2e` for critical browser
 journeys. These are intended script names, not currently runnable commands.
+When scaffolding, verify that `lint` detects a lint violation and `format:check` detects an
+unformatted project-owned file, then confirm both pass after correction.
 
 CI should use pinned compatible Node/pnpm versions, the generated lockfile, and frozen
-installs. Run applicable lint/type/unit/build checks; full-stack changes add isolated
-database/integration and critical-browser checks. Test setup must precede dependent features.
+installs. Run non-mutating lint/format checks and applicable type/unit/build checks;
+full-stack changes add isolated database/integration and critical-browser checks.
+Test setup must precede dependent features.
 Do not use missing tests, skipped jobs, or unconfigured scripts as success evidence.
 
 Full-stack local validation should build web/API/database through Docker Compose, use
