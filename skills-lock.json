@@ -1,0 +1,140 @@
+{
+  "version": 2,
+  "skills": {
+    "brainstorm-experiments-new": {
+      "source": "phuryn/pm-skills",
+      "ref": "9af7bfd0bc47fdad43c2eaa7a43cd13918e7aaef",
+      "sourceType": "github",
+      "skillPath": "pm-product-discovery/skills/brainstorm-experiments-new/SKILL.md",
+      "computedHash": "6d22d391378499abfd77f038e4b3340ad4d81ea9c9dfafb960939b3c8c35a841",
+      "installMode": "copy"
+    },
+    "competitor-analysis": {
+      "source": "phuryn/pm-skills",
+      "ref": "9af7bfd0bc47fdad43c2eaa7a43cd13918e7aaef",
+      "sourceType": "github",
+      "skillPath": "pm-market-research/skills/competitor-analysis/SKILL.md",
+      "computedHash": "5479829fa6c96b856f309af5fa3a1f389aedc4374555277f14187ff184d07723",
+      "installMode": "copy"
+    },
+    "humanizer": {
+      "source": "blader/humanizer",
+      "sourceType": "github",
+      "skillPath": "SKILL.md",
+      "computedHash": "04cdabbcceaa7b5d4bd4b1ea02339013503d623b270b5b3b2e274837494d7134",
+      "installMode": "copy"
+    },
+    "identify-assumptions-new": {
+      "source": "phuryn/pm-skills",
+      "ref": "9af7bfd0bc47fdad43c2eaa7a43cd13918e7aaef",
+      "sourceType": "github",
+      "skillPath": "pm-product-discovery/skills/identify-assumptions-new/SKILL.md",
+      "computedHash": "ac1d36b9e672b10f82df63c05f5eb030fb672d559e1286b80d24ad5e4d141083",
+      "installMode": "copy"
+    },
+    "interview-script": {
+      "source": "phuryn/pm-skills",
+      "ref": "9af7bfd0bc47fdad43c2eaa7a43cd13918e7aaef",
+      "sourceType": "github",
+      "skillPath": "pm-product-discovery/skills/interview-script/SKILL.md",
+      "computedHash": "6864d3e34f427148b40361790b1cb586893792d62ee7b08d8438bf0cb8a6c6eb",
+      "installMode": "copy"
+    },
+    "market-segments": {
+      "source": "phuryn/pm-skills",
+      "ref": "9af7bfd0bc47fdad43c2eaa7a43cd13918e7aaef",
+      "sourceType": "github",
+      "skillPath": "pm-market-research/skills/market-segments/SKILL.md",
+      "computedHash": "8f2af6c2d567bf957747e398332ae39be9c36a3ea85019a0ca7b6940d72b55b2",
+      "installMode": "copy"
+    },
+    "market-sizing": {
+      "source": "phuryn/pm-skills",
+      "ref": "9af7bfd0bc47fdad43c2eaa7a43cd13918e7aaef",
+      "sourceType": "github",
+      "skillPath": "pm-market-research/skills/market-sizing/SKILL.md",
+      "computedHash": "d00779c11d5b32692203717d40fd8abd42b2d302756d6590317ec6d93d6402a5",
+      "installMode": "copy"
+    },
+    "nestjs-best-practices": {
+      "source": "Kadajett/agent-nestjs-skills",
+      "ref": "3986e0cede33958e000f959031cbee0cd83c2941",
+      "sourceType": "github",
+      "skillPath": "skills/nestjs-best-practices/SKILL.md",
+      "computedHash": "15dfabf74412bab8e6232cbe111b56048aac496d2f151a08995f305475d82fad",
+      "installMode": "copy"
+    },
+    "playwright-best-practices": {
+      "source": "currents-dev/playwright-best-practices-skill",
+      "ref": "0b75b5835a87de1fdd202ba965f3bc5a27738fdf",
+      "sourceType": "github",
+      "skillPath": "playwright-best-practices/SKILL.md",
+      "computedHash": "111e9d3e9d63dea34814120fb6583c0b28ee45371662801d8e8d8bdf4b05dcb0",
+      "installMode": "copy"
+    },
+    "prioritize-assumptions": {
+      "source": "phuryn/pm-skills",
+      "ref": "9af7bfd0bc47fdad43c2eaa7a43cd13918e7aaef",
+      "sourceType": "github",
+      "skillPath": "pm-product-discovery/skills/prioritize-assumptions/SKILL.md",
+      "computedHash": "6652b661d0fdd86f29b09906ff7c5acc0ea3e1fc374e74cd865663a8f34aecef",
+      "installMode": "copy"
+    },
+    "summarize-interview": {
+      "source": "phuryn/pm-skills",
+      "ref": "9af7bfd0bc47fdad43c2eaa7a43cd13918e7aaef",
+      "sourceType": "github",
+      "skillPath": "pm-product-discovery/skills/summarize-interview/SKILL.md",
+      "computedHash": "a1cae63a085419b0721e668f53cb1354d67cf04b8a7298322a307881d614f882",
+      "installMode": "copy"
+    },
+    "systematic-debugging": {
+      "source": "obra/superpowers",
+      "ref": "22f0b463e7a5e579904dd6211a520321035526f7",
+      "sourceType": "github",
+      "skillPath": "skills/systematic-debugging/SKILL.md",
+      "computedHash": "79ff0583175346e39431b0dc713b223edd1bd7a7ea2b6c8b78b2fb9a3fed6782",
+      "installMode": "copy"
+    },
+    "tanstack-query-best-practices": {
+      "source": "DeckardGer/tanstack-agent-skills",
+      "ref": "b2fc14c974b2ca09b38de09c28237f240175205b",
+      "sourceType": "github",
+      "skillPath": "skills/tanstack-query/SKILL.md",
+      "computedHash": "7e22c25af6f7dd31ab76fb5b1415afe9f49caf613581c04ed04e0e8591ea704a",
+      "installMode": "copy"
+    },
+    "test-driven-development": {
+      "source": "obra/superpowers",
+      "ref": "22f0b463e7a5e579904dd6211a520321035526f7",
+      "sourceType": "github",
+      "skillPath": "skills/test-driven-development/SKILL.md",
+      "computedHash": "2782702b2cf69ace085ed30d067b6f8bfd2d777ad51770fc5bdae9cb5c1b5c04",
+      "installMode": "copy"
+    },
+    "user-personas": {
+      "source": "phuryn/pm-skills",
+      "ref": "9af7bfd0bc47fdad43c2eaa7a43cd13918e7aaef",
+      "sourceType": "github",
+      "skillPath": "pm-market-research/skills/user-personas/SKILL.md",
+      "computedHash": "f88bad90c490590996efec240c4aaa4a7d85f6021490d68a3d1f8c560cf8d407",
+      "installMode": "copy"
+    },
+    "vercel-react-best-practices": {
+      "source": "vercel-labs/agent-skills",
+      "ref": "1a2c79d4e6c4a2283dc2c614b6538cbe1ed5ca62",
+      "sourceType": "github",
+      "skillPath": "skills/react-best-practices/SKILL.md",
+      "computedHash": "7991ed4fbecdac23f47c1a40c243e00a212a9e7f3604db93959b3ae11dffe299",
+      "installMode": "copy"
+    },
+    "verification-before-completion": {
+      "source": "obra/superpowers",
+      "ref": "22f0b463e7a5e579904dd6211a520321035526f7",
+      "sourceType": "github",
+      "skillPath": "skills/verification-before-completion/SKILL.md",
+      "computedHash": "09b0e3a4689c1c38a3b8fc6ef57a1d4165aa33c0013d546dbde9dd348941a319",
+      "installMode": "copy"
+    }
+  }
+}
