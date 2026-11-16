@@ -39,6 +39,10 @@
 - Technical failures: `.agents/skills/systematic-debugging/SKILL.md`; inspect causes first.
   Diagnostic examples must not expose secrets/personal data; review scripts before execution.
 - Completion claims: `.agents/skills/verification-before-completion/SKILL.md`.
+- Other Superpowers skills under `.agents/skills/` provide guidance for their matching
+  tasks. Spec Kit retains ownership of feature artifacts; do not create parallel plans or
+  designs by default. Worktrees, agent dispatch, commits, hooks, and script execution
+  require the approvals above. Diagnostic exports and external reports require user approval.
 - NestJS: `.agents/skills/nestjs-best-practices/SKILL.md`; preserve modular monolith/Prisma
   choices unless the project approves a change. No TypeORM/auth/queues/events from examples alone.
 - React: `.agents/skills/vercel-react-best-practices/SKILL.md` alongside Impeccable.

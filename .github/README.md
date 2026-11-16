@@ -11,7 +11,7 @@ They are authoring guidance, not application dependencies or executable permissi
 | Impeccable 4.9.1 | UI workflow, playbooks, launcher, four companion agent definitions | [Skill](./skills/impeccable/SKILL.md), bundled LICENSE/NOTICE, `scripts/VERSION` and engine checksums |
 | Humanizer | Prose authoring | [Skill](../.agents/skills/humanizer/SKILL.md), bundled MIT license |
 | Engineering | NestJS, TanStack Query, Playwright, Vercel React | Pinned refs and folder hashes in [skills lock](../skills-lock.json) |
-| Superpowers selection | TDD, systematic debugging, verification before completion | Pinned refs and hashes in skills lock |
+| Superpowers | All 15 skills at the pinned revision, including planning, review, TDD, debugging, and verification | Pinned refs and hashes in skills lock |
 | PM Skills selection | New-product assumptions, prioritization, experiments, interview script/synthesis, competitors, market segments/sizing, personas | Pinned refs and hashes in skills lock |
 
 Copilot reads `.github/skills` and `.agents/skills` where supported. Reload the client and
@@ -29,7 +29,9 @@ and hash are preserved, but it does not have the same ref-based restore guarante
 Do not reinstall tooling on every project start. Review upstream changes and license notices
 before an update. Do not edit pinned skill prose to resolve conflicts; constrain routing in
 repository instructions instead. Upstream TDD restart/full-suite directions do not override
-the project's safety or focused-test policy.
+the project's safety or focused-test policy. Superpowers planning and execution guidance
+does not replace Spec Kit artifacts or authorize worktrees, agent dispatch, commits, hooks,
+or script execution. Diagnostic exports and external reports require user approval.
 
 For a deliberate restore of the ref-pinned shared skills, run from the project root in a
 dedicated PowerShell process with Node/npm available:
