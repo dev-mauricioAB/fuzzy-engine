@@ -11,3 +11,26 @@ __pycache__/
 !.env.*.example
 .github/skills/impeccable/scripts/bin/
 .impeccable/mocks/
+
+# Logs and OS/editor files
+*.log
+npm-debug.log*
+pnpm-debug.log*
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/*
+!.vscode/settings.json
+!.vscode/extensions.json
+
+# Build and tool caches
+build/
+out/
+*.tsbuildinfo
+.vite/
+.turbo/
+.eslintcache
+.pnpm-store/
+.next/
+.expo/
+.vercel/
