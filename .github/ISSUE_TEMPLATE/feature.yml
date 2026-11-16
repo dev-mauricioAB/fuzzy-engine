@@ -1,0 +1,32 @@
+name: Feature request
+description: Propose a feature or change for a later Spec Kit specification.
+labels: ["feature"]
+body:
+  - type: textarea
+    id: problem
+    attributes:
+      label: Problem and audience
+      description: Who has the problem, and what evidence shows it? Mark assumptions as assumptions.
+    validations:
+      required: true
+  - type: textarea
+    id: outcome
+    attributes:
+      label: Desired outcome
+      description: The primary action or measurable result. Label proposed thresholds as proposals.
+    validations:
+      required: true
+  - type: textarea
+    id: acceptance
+    attributes:
+      label: Acceptance criteria
+      description: Observable behavior, including failure and empty states.
+  - type: textarea
+    id: scope
+    attributes:
+      label: Out of scope and open questions
+  - type: textarea
+    id: data
+    attributes:
+      label: Data, permissions, and external services
+      description: Personal data, third-party data, or services involved, and the basis for using them.
