@@ -5,8 +5,11 @@
 - Read `.specify/memory/constitution.md`, `README.md`, and the selected profile under `profiles/`.
 - This foundation is guidance-first: there is no app, package manifest, runtime runner,
   application CI, deployment, or database. Do not claim planned commands have been verified.
-- Read the consuming project's `PRODUCT.md` and active feature's `spec.md`, `plan.md`,
-  contracts, and `tasks.md` when they exist. Do not invent missing context or product facts.
+  The only runnable check is `node scripts/validate-template.mjs`; run it after changing
+  skills, Spec Kit files, or Markdown links.
+- Read the consuming project's `PRODUCT.md`, accepted ADRs in `docs/decisions/`, and the
+  active feature's `spec.md`, `plan.md`, contracts, and `tasks.md` when they exist. Do not
+  invent missing context or product facts. Draft lasting decisions as `Proposed` ADRs.
 - Ask about material unknowns. Keep landing projects frontend-only unless their requirements
   change; full-stack guidance does not authorize installing a backend everywhere.
 - Use *Fundamentals of Software Architecture: An Engineering Approach* and Clean Code
@@ -27,11 +30,16 @@
 - Never overwrite unrelated user changes or delete existing code because a skill says restart.
   Do not automatically create worktrees, dispatch agents, commit, push, or merge.
 - Verify the changed outcome with focused checks; report blockers and what was not run.
+- Follow `docs/security.md` for environment variables, secrets, input validation, and data.
 - Do not enable hooks, bypass permissions, execute unreviewed scripts, or send code/secrets
   to external services without approval. External data requires documented access/reuse rights.
 
 ## Skill routing
 
+- Project workflow: `.github/skills/start-project` for a new project and `PRODUCT.md`,
+  `.github/skills/next-slice` for one approved slice at a time, and
+  `.github/skills/verify-slice` for evidence before a completion claim or pull request.
+  Users run them as `/start-project`, `/next-slice`, and `/verify-slice` from `.github/prompts/`.
 - UI/design: `.github/skills/impeccable/SKILL.md` and relevant playbook; follow
   `.github/instructions/frontend.instructions.md`. Use the Windows `.cmd` launcher on Windows.
 - Prose/UI copy: `.agents/skills/humanizer/SKILL.md` and writing instructions.
@@ -46,7 +54,8 @@
 - NestJS: `.agents/skills/nestjs-best-practices/SKILL.md`; preserve modular monolith/Prisma
   choices unless the project approves a change. No TypeORM/auth/queues/events from examples alone.
 - React: `.agents/skills/vercel-react-best-practices/SKILL.md` alongside Impeccable.
-  Apply Vite-compatible guidance; no implicit Next.js/RSC/SWR or speculative optimization.
+  Apply Vite-compatible guidance; use Next.js/RSC patterns only when the SSR profile is
+  selected. No implicit SWR or speculative optimization.
 - Query/cache: `.agents/skills/tanstack-query-best-practices/SKILL.md`. Separate client/server
   state, use effective request criteria in keys, and verify pinned cancellation/retry semantics.
   Offline persistence requires its own requirement.

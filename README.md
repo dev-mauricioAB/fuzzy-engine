@@ -9,23 +9,38 @@ Choose one profile:
 |---------|------------|----------------------------|
 | [Landing](./profiles/landing/README.md) | Landing pages and small frontend-only sites | pnpm, TypeScript, React, Vite, Tailwind; selected shadcn/ui controls |
 | [Full stack](./profiles/full-stack/README.md) | Applications needing an API, persistence, and critical end-to-end journeys | Landing frontend plus NestJS, Prisma, PostgreSQL, and Docker Compose |
+| [SPA + BaaS](./profiles/spa-baas/README.md) | Client-rendered apps using a hosted backend such as Supabase or Firebase | Landing frontend plus the chosen provider's SDK and local emulator |
+| [SSR](./profiles/ssr/README.md) | Sites needing server rendering or static generation for SEO or first load | Next.js App Router with Tailwind (framework choice recorded in an ADR) |
+| [Mobile](./profiles/mobile/README.md) | Native iOS/Android apps | Expo and React Native with `jest-expo`; native E2E tool chosen by ADR |
+| [API only](./profiles/api-only/README.md) | Backend services without a web frontend in the repository | NestJS, Prisma, PostgreSQL, OpenAPI, and Docker Compose |
 
-This revision contains skills, instructions, planning templates, and profile guidance.
-It has no application scaffold, dependency manifest, pnpm lockfile, app test runner, CI
-pipeline, database, or deployment. Profiles are documented choices, not generated apps.
+This revision contains skills, instructions, planning templates, profile guidance, editor
+settings, GitHub issue/PR templates, and a template validation workflow. It has no
+application scaffold, dependency manifest, pnpm lockfile, app test runner, app CI,
+database, or deployment. Profiles are documented choices, not generated apps.
 Application dependencies will be installed and pinned when a chosen profile is scaffolded.
+
+The one runnable check validates the template itself (skill hashes, Spec Kit manifests,
+project skills, and Markdown links). It needs only Node.js LTS:
+
+```powershell
+node scripts/validate-template.mjs
+```
 
 ## Start a project
 
-1. Copy this foundation into a new repository, excluding `.git`, or use GitHub's template
-   feature if a maintainer enables it. A normal clone retains this template's history.
-2. Open that repository in VS Code/Copilot. Read the
-   [constitution](./.specify/memory/constitution.md) and choose one profile.
+1. Select **Use this template** on GitHub, or copy this foundation into a new repository
+   excluding `.git`. A normal clone retains this template's history.
+2. Open that repository in VS Code/Copilot, install the recommended extensions, and ask
+   run `/start-project` in Copilot Chat (or ask for the `start-project` skill). It reads the
+   [constitution](./.specify/memory/constitution.md), helps you choose one profile, and
+   writes `PRODUCT.md` from your confirmed answers.
 3. Follow [project setup](./docs/start-a-project.md). Confirm the audience, intended
    outcome, locale, accessibility requirements, data permissions, and critical journeys.
 4. Create project-specific context and an approved feature spec/plan before scaffolding.
 5. Scaffold only the selected profile, verify compatible dependencies and working test
-   runners, then implement behavior through red-green-refactor.
+   runners, then implement behavior through red-green-refactor. Use `/next-slice` for one
+      reviewed slice at a time and `/verify-slice` before each pull request.
 
 Suggested first request:
 
@@ -50,8 +65,22 @@ For an application:
 - Backend, database, forms, routing, state libraries, and PWA behavior are opt-in by need.
   Hosting, authentication, payment services, maps, and a visual identity are not preselected.
 
-See [architecture and quality](./docs/architecture.md),
-[agent tooling](./.github/README.md), and the [project brief template](./docs/project-brief-template.md).
+## Guides
+
+| Topic | Document |
+|-------|----------|
+| Step-by-step project setup | [Start a project](./docs/start-a-project.md) |
+| Architecture, testing, lint/format | [Architecture and quality](./docs/architecture.md) |
+| Product context | [Project brief template](./docs/project-brief-template.md) |
+| Lasting decisions | [Architecture decision records](./docs/decisions/README.md) |
+| Environment, secrets, input, data | [Security](./docs/security.md) |
+| GitHub Actions | [CI](./docs/ci.md) |
+| Node/pnpm pinning and updates | [Dependency updates](./docs/dependency-updates.md) |
+| Hosting and monitoring choices | [Deployment and observability](./docs/deployment-and-observability.md) |
+| Skills, provenance, updates | [Agent tooling](./.github/README.md) |
+| Rules for non-Copilot agents | [AGENTS.md](./AGENTS.md) |
+
+The repository's own content is under the [MIT license](./LICENSE).
 Third-party skill licenses remain with their files and in the
 [shared notices](./.agents/THIRD_PARTY_NOTICES.txt); Spec Kit's notice is
 [preserved separately](./.specify/LICENSE). Those licenses apply to their respective content.

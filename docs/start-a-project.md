@@ -2,9 +2,11 @@
 
 ## 1. Choose the scope
 
-Select [landing](../profiles/landing/README.md) or
-[full stack](../profiles/full-stack/README.md). Use one profile in a consuming repository.
-The profile folders are guides, not pnpm packages. There is no profile-switching generator.
+Select one profile from the table in the [README](../README.md): landing, full stack,
+SPA + BaaS, SSR, mobile, or API only. Use one profile in a consuming repository and record
+the choice as an ADR in [decisions](./decisions/README.md). The profile folders are
+guides, not pnpm packages. There is no profile-switching generator. The `/start-project`
+prompt (the `start-project` skill) walks through this step and the next one.
 
 For a landing page, keep backend/database dependencies out. If a form needs a service,
 first choose and authorize its destination; do not make a local success message pretend
@@ -55,7 +57,9 @@ test before its dependent implementation. Do not copy illustrative tasks unchang
 ## 4. Scaffold the selected profile
 
 This step is future work in the consuming project. Use package-manager/scaffolding tools,
-verify current compatibility, and pin the selected Node/pnpm/dependency versions.
+verify current compatibility, and pin the selected Node/pnpm/dependency versions as
+described in [dependency updates](./dependency-updates.md). Add a `.env.example` and
+startup validation following [security](./security.md).
 Do not install every library just because a skill for it is present.
 
 Before feature behavior, prove Jest can load the relevant TypeScript/TSX, ESM, aliases,
@@ -66,14 +70,17 @@ Configure ESLint and Prettier, their lint/format scripts, and non-mutating CI ch
 described in [architecture and quality](./architecture.md). Verify supported versions and
 peer compatibility when scaffolding; do not treat these tools as installed in this foundation.
 
-Configure actual type, build, and test scripts and appropriate CI. Add database
+Configure actual type, build, and test scripts and appropriate CI, starting from the
+example in [CI](./ci.md). Add database
 integration and critical-browser jobs only to profiles/features needing them; required jobs
 must fail on failure rather than becoming optional or suppressing tests.
 The full-stack profile must support local Compose validation and isolated integration data.
 
 ## 5. Implement and verify
 
-Use red-green-refactor for introduced/changed behavior. Broken imports and missing
+Use red-green-refactor for introduced/changed behavior. The `/next-slice` prompt takes one
+approved slice through this loop, and `/verify-slice` produces the evidence report for the
+pull request template. Broken imports and missing
 dependencies are setup failures, not valid red evidence. Test focused behavior with Jest;
 reserve Playwright for named critical journeys and keep manual keyboard/accessibility checks.
 Do not create a second unit runner.
@@ -86,4 +93,5 @@ and database readiness are not established by this foundation.
 
 Treat future foundation updates as reviewed changes, not a bulk overwrite of an app.
 Keep application requirements/design/history, inspect tooling diffs and licenses, and rerun
-the affected checks. Never replace a consuming project's context with generic template defaults.
+the affected checks, including `node scripts/validate-template.mjs`. Never replace a
+consuming project's context with generic template defaults.

@@ -7,12 +7,18 @@ They are authoring guidance, not application dependencies or executable permissi
 
 | Collection | Included skills | Provenance |
 |------------|-----------------|------------|
-| Spec Kit 1.4.0 | specify, clarify, plan, tasks, analyze, checklist, implement, converge, constitution | `.github/skills/speckit-*`, `.specify/` manifests and [MIT license](../.specify/LICENSE) |
+| Spec Kit 1.4.1 | specify, clarify, plan, tasks, analyze, checklist, implement, converge, constitution | `.github/skills/speckit-*`, `.specify/` manifests and [MIT license](../.specify/LICENSE) |
 | Impeccable 4.9.1 | UI workflow, playbooks, launcher, four companion agent definitions | [Skill](./skills/impeccable/SKILL.md), bundled LICENSE/NOTICE, `scripts/VERSION` and engine checksums |
 | Humanizer | Prose authoring | [Skill](../.agents/skills/humanizer/SKILL.md), bundled MIT license |
 | Engineering | NestJS, TanStack Query, Playwright, Vercel React | Pinned refs and folder hashes in [skills lock](../skills-lock.json) |
 | Superpowers | All 15 skills at the pinned revision, including planning, review, TDD, debugging, and verification | Pinned refs and hashes in skills lock |
 | PM Skills selection | New-product assumptions, prioritization, experiments, interview script/synthesis, competitors, market segments/sizing, personas | Pinned refs and hashes in skills lock |
+| Project workflow (this repository) | `start-project`, `next-slice`, `verify-slice` | `.github/skills/` and `.github/prompts/`, MIT under the repository [LICENSE](../LICENSE); edit freely |
+
+Each project workflow has a skill with the full steps and a prompt file that runs it as a
+chat command: `/start-project`, `/next-slice`, and `/verify-slice` in VS Code. The prompt
+files only point to the skills, so change the steps in the skill. Agents that do not read
+`.github/prompts/` can use the skill by name.
 
 Copilot reads `.github/skills` and `.agents/skills` where supported. Reload the client and
 verify discovery if skills do not appear. Agent definitions are available but do not grant
@@ -56,8 +62,18 @@ This command restores the ref-pinned shared skills only, not Impeccable, Humaniz
 Their bundled copies are available directly from this repository's committed revision.
 
 Spec Kit installation manifests record upstream baselines; local templates such as the
-test-first tasks template are intentional customizations. Review updates so they do not
-silently replace project policy. No extension hook configuration is included.
+test-first tasks template and the profile-aware plan template are intentional
+customizations, as is `.specify/.gitignore`. Review updates so they do not silently
+replace project policy. No extension hook configuration is included.
+
+## Validation
+
+`node scripts/validate-template.mjs` recomputes every `skills-lock.json` folder hash,
+flags `.agents/skills` folders missing from the lock, compares Spec Kit files with their
+manifests (allowing only the customizations listed above, which are also listed in the
+script), checks the project workflow skills' frontmatter, and checks relative links in
+project-owned Markdown. The [Validate template](./workflows/validate-template.yml)
+workflow runs it on pushes to `main` and on pull requests. Run it after any tooling update.
 
 ## Responsibility boundaries
 
