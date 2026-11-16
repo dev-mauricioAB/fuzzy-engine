@@ -5,7 +5,7 @@ description: "Profile-aware test-first task list template"
 # Tasks: [FEATURE NAME]
 
 **Input**: Approved `spec.md`, `plan.md`, and applicable research/contracts.
-**Profile**: [landing | full-stack]
+**Profile**: [landing | full-stack | spa-baas | ssr | mobile | api-only]
 **Status**: [proposed | approved]
 
 Replace all placeholders and examples with the feature's actual tasks. Do not add API,
@@ -49,6 +49,7 @@ Do not claim missing tools or broken imports establish a behavioral failure.
 - [ ] [ID] Verify green and refactor without changing scope; depends on implementation.
 - [ ] [ID] [If critical] Verify the named Playwright journey and relevant failure/recovery
   case using controlled data; depends on the integrated behavior and browser foundations.
+  Mobile projects use the ADR-selected native E2E tool or a recorded manual run instead.
 
 Repeat for actual stories. Jest covers detailed combinations; Playwright covers named
 critical journeys, not every component variant. Do not add tests for trivial accessors,

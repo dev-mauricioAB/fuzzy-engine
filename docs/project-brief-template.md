@@ -5,7 +5,8 @@ This file is an unfilled outline, not confirmed product context.
 
 ## Platform and profile
 
-[Landing or full stack; intended browser/device support.]
+[Landing, full stack, SPA + BaaS, SSR, mobile, or API only (link the ADR); intended
+browser, device, or OS support.]
 
 ## Users and evidence
 
@@ -35,4 +36,5 @@ hosting/budget decisions, and actual verified commands once available.]
 
 ## Decisions and open questions
 
-[Confirmed decisions with dates/evidence; unresolved material questions and who decides.]
+[Confirmed decisions with dates/evidence and links to accepted ADRs in `docs/decisions/`;
+unresolved material questions and who decides.]

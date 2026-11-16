@@ -1,5 +1,5 @@
 ---
-applyTo: "src/**,apps/web/**,packages/ui/**"
+applyTo: "src/**,app/**,apps/web/**,apps/mobile/**,packages/ui/**"
 ---
 
 # Frontend guidance
@@ -10,6 +10,9 @@ applyTo: "src/**,apps/web/**,packages/ui/**"
   important states before user-facing UI code. Do not invent a brand or repeat settled choices.
 - Landing profile: one small frontend; no backend/data/state libraries without requirements.
   Full stack: follow documented boundaries and keep server state separate from client state.
+  SPA + BaaS, SSR, and mobile: follow the selected profile README. Mobile uses React Native
+  components and platform accessibility APIs rather than HTML semantics.
+  API-only projects have no UI; ignore this file there.
 - Use React/Vite/Tailwind preferences and required shadcn/ui controls only. Preserve primitive
   semantics, keyboard/focus behavior, and source provenance; library use does not prove accessibility.
 - Use semantic controls, visible focus, contrast, reduced-motion support, accessible dialogs,

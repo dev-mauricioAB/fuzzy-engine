@@ -13,34 +13,50 @@
 ## Technical Context
 
 <!--
-  ACTION REQUIRED: Replace the content in this section with the technical details
-  for the project. The structure here is presented in advisory capacity to guide
-  the iteration process.
+  ACTION REQUIRED: Replace every bracket with facts from PRODUCT.md, the approved spec,
+  the selected profile under profiles/, accepted ADRs, and files that actually exist.
+  Write NEEDS CLARIFICATION for anything not confirmed. Do not fill gaps with examples.
 -->
 
-**Language/Version**: [e.g., Python 3.11, Swift 5.9, Rust 1.75 or NEEDS CLARIFICATION]
+**Profile**: [landing | full-stack | spa-baas | ssr | mobile | api-only, from PRODUCT.md]
 
-**Primary Dependencies**: [e.g., FastAPI, UIKit, LLVM or NEEDS CLARIFICATION]
+**Language/Runtime**: [TypeScript; Node.js LTS line and pnpm version pinned or to pin at scaffolding]
 
-**Storage**: [if applicable, e.g., PostgreSQL, CoreData, files or N/A]
+**Primary Dependencies**: [Only those the selected profile and this feature need, e.g.
+React/Vite/Tailwind for landing, or NEEDS CLARIFICATION. Verify versions/peers at scaffolding.]
 
-**Testing**: [e.g., pytest, XCTest, cargo test or NEEDS CLARIFICATION]
+**Storage**: [N/A for landing; PostgreSQL via Prisma for full-stack/api-only when persistence
+is in scope; the chosen provider for spa-baas; or NEEDS CLARIFICATION]
 
-**Target Platform**: [e.g., Linux server, iOS 15+, WASM or NEEDS CLARIFICATION]
+**Testing**: [Jest for unit/component/isolated integration; Playwright only for named
+critical browser journeys; native mobile E2E tool only if an ADR selected one]
 
-**Project Type**: [e.g., library/cli/web-service/mobile-app/compiler/desktop-app or NEEDS CLARIFICATION]
+**Lint/Format**: [ESLint flat config and Prettier per docs/architecture.md]
 
-**Performance Goals**: [domain-specific, e.g., 1000 req/s, 10k lines/sec, 60 fps or NEEDS CLARIFICATION]
+**Target Platform**: [Supported browsers/devices, mobile OS versions, or server runtime]
 
-**Constraints**: [domain-specific, e.g., <200ms p95, <100MB memory, offline-capable or NEEDS CLARIFICATION]
+**External Services**: [Each service, its approved access/permission basis, and its failure
+behavior, or N/A]
 
-**Scale/Scope**: [domain-specific, e.g., 10k users, 1M LOC, 50 screens or NEEDS CLARIFICATION]
+**Hosting/Auth/Locale**: [Accepted decisions with ADR links, or NEEDS CLARIFICATION]
+
+**Performance/Accessibility Targets**: [Agreed budgets and accessibility target; label
+proposals as proposals]
+
+**Verified Commands**: [Commands actually run against existing scripts, or "none yet".
+Keep intended commands in a separate list.]
 
 ## Constitution Check
 
 *GATE: Must pass before Phase 0 research. Re-check after Phase 1 design.*
 
-[Gates determined based on constitution file]
+- [ ] Facts trace to PRODUCT.md, the spec, ADRs, or cited sources; unknowns are marked.
+- [ ] Scope fits the selected profile; no backend/database/state library without a requirement.
+- [ ] Each new dependency has a concrete need; versions/peers will be verified, not assumed.
+- [ ] Untrusted input, secrets, personal data, and external-data permissions are addressed.
+- [ ] Runner/CI setup precedes behavior tests; each behavior has a planned failing test.
+- [ ] Hosting, auth, PWA, locale, visual identity, and data providers are decided or open.
+- [ ] Significant choices list alternatives and trade-offs (ADR in `docs/decisions/` when lasting).
 
 ## Project Structure
 
@@ -50,59 +66,52 @@
 specs/[###-feature]/
 ├── plan.md              # This file (/speckit-plan command output)
 ├── research.md          # Phase 0 output (/speckit-plan command)
-├── data-model.md        # Phase 1 output (/speckit-plan command)
+├── data-model.md        # Phase 1 output, only when the feature has persistent data
 ├── quickstart.md        # Phase 1 output (/speckit-plan command)
-├── contracts/           # Phase 1 output (/speckit-plan command)
+├── contracts/           # Phase 1 output, only when the feature has an API/service boundary
 └── tasks.md             # Phase 2 output (/speckit-tasks command - NOT created by /speckit-plan)
 ```
 
 ### Source Code (repository root)
 <!--
-  ACTION REQUIRED: Replace the placeholder tree below with the concrete layout
-  for this feature. Delete unused options and expand the chosen structure with
-  real paths (e.g., apps/admin, packages/something). The delivered plan must
-  not include Option labels.
+  ACTION REQUIRED: Keep only the selected profile's layout and replace it with the real
+  paths this feature touches. The delivered plan must not include profile labels or
+  directories the feature does not need. Layouts come from profiles/*/README.md.
 -->
 
 ```text
-# [REMOVE IF UNUSED] Option 1: Single project (DEFAULT)
+# [REMOVE IF UNUSED] landing, spa-baas
 src/
-├── models/
-├── services/
-├── cli/
+├── components/
+├── sections/ or routes/
 └── lib/
+tests/ or colocated *.test.tsx
 
-tests/
-├── contract/
-├── integration/
-└── unit/
+# [REMOVE IF UNUSED] full-stack
+apps/web/src/
+apps/api/src/<feature-module>/
+apps/api/prisma/
+packages/contracts/   # only for real web/API reuse
+packages/domain/      # only for framework-independent business rules
 
-# [REMOVE IF UNUSED] Option 2: Web application (when "frontend" + "backend" detected)
-backend/
-├── src/
-│   ├── models/
-│   ├── services/
-│   └── api/
-└── tests/
+# [REMOVE IF UNUSED] ssr (Next.js App Router)
+src/app/
+src/components/
+src/lib/
 
-frontend/
-├── src/
-│   ├── components/
-│   ├── pages/
-│   └── services/
-└── tests/
+# [REMOVE IF UNUSED] mobile (Expo)
+app/                  # Expo Router routes, if routing is selected
+src/components/
+src/lib/
 
-# [REMOVE IF UNUSED] Option 3: Mobile + API (when "iOS/Android" detected)
-api/
-└── [same as backend above]
-
-ios/ or android/
-└── [platform-specific structure: feature modules, UI flows, platform tests]
+# [REMOVE IF UNUSED] api-only
+src/<feature-module>/
+prisma/
+test/
 ```
 
-**Structure Decision**: [Document the selected structure and reference the real
-directories captured above]
-
+**Structure Decision**: [The selected layout with the real directories above, and why
+any added package or layer is needed]
 ## Complexity Tracking
 
 > **Fill ONLY if Constitution Check has violations that must be justified**

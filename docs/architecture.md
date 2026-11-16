@@ -3,7 +3,9 @@
 ## Profile boundaries
 
 Use the smallest structure appropriate to the selected profile. These are proposed
-scaffolding layouts, not existing runtime directories.
+scaffolding layouts, not existing runtime directories. The table covers the two base
+profiles; SPA + BaaS, SSR, mobile, and API only reuse these rules with the differences
+described in their own READMEs under `profiles/`.
 
 | Concern | Landing | Full stack |
 |---------|---------|------------|
