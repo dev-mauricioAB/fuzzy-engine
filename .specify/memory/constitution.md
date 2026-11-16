@@ -1,6 +1,6 @@
 # Fuzzy Engine constitution
 
-**Version**: 1.0.0 | **Adopted**: 2026-11-16
+**Version**: 1.1.0 | **Adopted**: 2026-11-16 | **Amended**: 2026-11-16
 
 ## I. Evidence and clarification
 
@@ -31,7 +31,8 @@ require appropriate review/approval; skills do not override those constraints.
 New/changed behavior and bug fixes MUST follow red-green-refactor with a focused behavioral
 failure before implementation. Broken tooling is not red evidence.
 Use Jest for unit/component and isolated integration tests, and Playwright only for the
-project's named critical browser journeys. Manual usability/accessibility review remains
+project's named critical browser journeys. Native mobile end-to-end tooling, when needed,
+MUST be selected through a recorded decision. Manual usability/accessibility review remains
 necessary. Runner/CI setup MUST precede dependent behavior tests in generated tasks.
 Use the narrowest sufficient checks, expand when justified, and report unverified outcomes.
 Documentation-only work does not require application tests.
@@ -41,7 +42,8 @@ Documentation-only work does not require application tests.
 pnpm/TypeScript and the documented profiles are defaults to evaluate, not preinstalled
 capabilities. Version/peer compatibility MUST be verified at scaffolding. Do not add a
 second unit runner or bypass peer conflicts. Hosting, auth, PWA, locale, visual identity,
-and data providers MUST be explicit project decisions.
+and data providers MUST be explicit project decisions, recorded as ADRs under
+`docs/decisions/` when they outlast one feature.
 Keep proposed commands separate from verified commands. No commit, push, deployment,
 automatic agent dispatch, or hook enablement is implied by a skill workflow.
 
